@@ -1,0 +1,2 @@
+## Evaluator
+This is a program I wrote to test obfuscation, it has some stuff that can mess with obfuscators and cause them to fail during runtime. The code is purposely pretty wack. I will probably add more stuff to this in the future.
