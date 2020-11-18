@@ -12,7 +12,7 @@ public enum DoubleMathOperation {
             return first + second;
         }
     },
-    SUB("+") {
+    SUB("-") {
         @Override
         public double evaluate(double first, double second) {
             return first - second;

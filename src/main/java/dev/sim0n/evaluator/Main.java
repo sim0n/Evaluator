@@ -1,5 +1,6 @@
 package dev.sim0n.evaluator;
 
+import dev.sim0n.evaluator.manager.TestManager;
 import dev.sim0n.evaluator.operation.DoubleMathOperation;
 import dev.sim0n.evaluator.operation.IntMathOperation;
 import dev.sim0n.evaluator.operation.Operation;
@@ -19,7 +20,7 @@ import java.util.stream.Stream;
 
 public class Main {
     private static final SecureRandom RANDOM = new SecureRandom();
-    private static final Log LOG = new Log();
+    public static final Log LOG = new Log();
 
     public static void main(String[] args) {
         int[] intValues = new int[] { 813,432,784,409,600,552,923,51,275,988,774,74,693,892,957,398,636,530,472,769,106,259,450,893,355 };
@@ -83,12 +84,23 @@ public class Main {
 
         calculations.run(LOG);
 
+        TestManager testManager = new TestManager();
+
+        testManager.handleTests();
+
         LOG.println("\nTesting cryptography (Blowfish)");
         Blowfish blowfish = new Blowfish("jHASf72183hjASf123");
 
         // Result should be: "hello world 123 " + System.currentTimeMillis() (1605479835458)
         String encryptedString = "5f45e43ca774e1d2611c6fc31c7e4b11ef4780e0ba9ba304b9da8b28bc86582e6745624bb00bfbc7a71f97a1e708e13bcfd6f700d77216680a52dc1d16e3a9dc2747a26466eb273d";
         String decryptedString = blowfish.decryptString(encryptedString);
+
+        String test = "5f45e43ca774e1d2611c6fc31c7e4b11ef4780e0ba9ba304b9da8b28bc86582e6745624bb00bfbc7a71f97a1e708e13bcfd6f700d77216680a52dc1d16e3a9dc2747a26466eb273d5f45e43ca774e1d2611c6fc31c7e4b11ef4780e0ba9ba304b9da8b28bc86582e6745624bb00bfbc7a71f97a1e708e13bcfd6f700d77216680a52dc1d16e3a9dc2747a26466eb273d";
+        System.out.println("Testing large string");
+
+        boolean successfulStringCompare = test.equals(encryptedString + encryptedString);
+
+        LOG.println(successfulStringCompare ? "Successfully compared strings" : "Unable to compare strings");
 
         boolean successfulDecrypt = decryptedString.equals("hello world 123 1605479835458");
 
