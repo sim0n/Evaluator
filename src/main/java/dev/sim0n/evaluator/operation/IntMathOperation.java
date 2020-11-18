@@ -14,7 +14,7 @@ public enum IntMathOperation {
             return first + second;
         }
     },
-    SUB("+") {
+    SUB("-") {
         @Override
         public int evaluate(int first, int second) {
             return first - second;
