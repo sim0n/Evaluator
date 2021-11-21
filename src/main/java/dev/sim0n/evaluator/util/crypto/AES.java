@@ -21,10 +21,11 @@ public class AES {
         byte[] cipherText = encryptText(plainText, secKey);
         String decryptedText = decryptText(cipherText, secKey);
 
-        System.out.println("Original Text:" + plainText);
-        System.out.println("AES Key (Hex Form):" + bytesToHex(secKey.getEncoded()));
-        System.out.println("Encrypted Text (Hex Form):" + bytesToHex(cipherText));
-        System.out.println("Descrypted Text:" + decryptedText);
+        System.out.println();
+        System.out.println("Original Text: " + plainText);
+        System.out.println("AES Key (Hex Form): " + bytesToHex(secKey.getEncoded()));
+        System.out.println("Encrypted Text (Hex Form): " + bytesToHex(cipherText));
+        System.out.println("Decrypted Text: " + decryptedText);
     }
 
     /**
