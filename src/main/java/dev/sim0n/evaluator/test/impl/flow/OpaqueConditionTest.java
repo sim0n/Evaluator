@@ -1,4 +1,4 @@
-package dev.sim0n.evaluator.test.impl.exception;
+package dev.sim0n.evaluator.test.impl.flow;
 
 import dev.sim0n.evaluator.test.Test;
 import dev.sim0n.evaluator.util.crypto.AES;
